@@ -1,6 +1,10 @@
 from dotenv import load_dotenv
 load_dotenv()
-import os
+import os, time
+
+# timezone
+os.environ['TZ'] = os.environ.get("tz") or 'America/Los_Angeles'
+time.tzset()
 
 # weather
 icon_base_url = 'http://openweathermap.org/img/wn/'
