@@ -7,15 +7,14 @@ from dashboard.Dictionaries import months, date_suffix, weekdays
 def print_date():
 	date = get_date()
 	w, h = draw_red.textsize(date['weekday'], font=large_font)
-	draw_red.text((2, 2),
+	draw_black.text((2, 2),
 				  date['weekday'],
 				  font=large_font,
 				  fill=0)
 	draw_black.text((w + 7, 5),
-					months[date['month']] + ' ' + date['day'] + date_suffix[date['day']] + ' ' + date['year'],
+					months[date['month']] + ' ' + date['day'] + date_suffix[date['day']] + ' ' + date['year'] + ' @ ' + date['time'] + '',
 					font=medium_font,
 					fill=0)
-
 
 def get_date():
 	now = datetime.datetime.now()
@@ -23,5 +22,6 @@ def get_date():
 		'weekday': weekdays[str(now.isoweekday())],
 		'day': str(now.day),
 		'month': str(now.month),
-		'year': str(now.year)
+		'year': str(now.year),
+		'time': str(now.strftime('%H:%M'))
 	}
