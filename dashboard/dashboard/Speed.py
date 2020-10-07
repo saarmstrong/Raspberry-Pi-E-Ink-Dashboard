@@ -28,7 +28,7 @@ def print_speed():
 
 
 def get_speed():
-	result = subprocess.run(['speed-test', '-j'], stdout=subprocess.PIPE)
+	result = subprocess.run(['/home/pi/.npm-packages/bin/speed-test', '-j'], stdout=subprocess.PIPE)
 	result_dictionary = json.loads(result.stdout.decode('utf-8'))
 	return {
 		'ping': str(result_dictionary.get('ping')),
